@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/LoadingError/Error";
-import { login } from './../Redux/Actions/userActions';
-import Loading from './../components/LoadingError/Loading';
+import Loading from "../components/LoadingError/Loading";
+import Toast from "../components/LoadingError/Toast";
+import { login } from "../Redux/Actions/userActions";
+import Message from "./../components/LoadingError/Error";
 
-const Login = ({history}) => {
-
+const Login = ({ history }) => {
   window.scrollTo(0, 0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,20 +25,16 @@ const Login = ({history}) => {
     e.preventDefault();
     dispatch(login(email, password));
   };
-
   return (
     <>
+      <Toast />
       <div
         className="card shadow mx-auto"
         style={{ maxWidth: "380px", marginTop: "100px" }}
       >
         <div className="card-body">
-          {
-            error && <Message variant="alert-danger">{error}</Message>
-          }
-          {
-            loading && <Loading />
-          }
+          {error && <Message variant="alert-danger">{error}</Message>}
+          {loading && <Loading />}
           <h4 className="card-title mb-4 text-center">Sign in</h4>
           <form onSubmit={submitHandler}>
             <div className="mb-3">
