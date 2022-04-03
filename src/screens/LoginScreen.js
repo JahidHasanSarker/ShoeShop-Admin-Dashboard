@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/LoadingError/Loading";
 import Toast from "../components/LoadingError/Toast";
-import { login } from "../Redux/Actions/userActions";
 import Message from "./../components/LoadingError/Error";
+import { login } from './../Redux/Actions/userActions';
 
 const Login = ({ history }) => {
   window.scrollTo(0, 0);
